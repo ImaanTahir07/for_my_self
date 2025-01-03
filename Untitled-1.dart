@@ -85,3 +85,25 @@
     );
   }
   }
+
+
+  // login validation
+    bool loginValidation() {
+    if (emailController!.text.isEmpty) {
+      Get.snackbar("Warning", "Email Field is empty", colorText: Colors.white);
+    } else if (!GetUtils.isEmail(emailController!.text)) {
+      Get.snackbar("Warning", "Invalid email address", colorText: Colors.white);
+    } else if (passwordController!.text.isEmpty) {
+      Get.snackbar("Warning", "Password Field is empty",
+          colorText: Colors.white);
+    } else {
+      return true;
+    }
+    return false;
+  }
+
+  // splash 
+   Timer(const Duration(seconds: 4), () {
+    Get.to(HomeScreen)
+   }
+   )
